@@ -1,0 +1,16 @@
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.next/
+.wrangler/
+.npm-cache/
+public/app.js
+public/catalog.js
+public/data.js
+public/lente.html
+public/manifest.webmanifest
+public/styles.css
+public/sw.js
+public/assets/

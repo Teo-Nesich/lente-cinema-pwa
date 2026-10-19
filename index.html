@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111210" />
+    <meta name="description" content="Scopri i film attraverso regia, scenografia, fotografia e storie dal set." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://image.tmdb.org" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Lente — Dentro il cinema</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="brand" type="button" data-action="home" aria-label="Vai alla home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Lente</span>
+        </button>
+        <button class="icon-button" type="button" data-action="about" aria-label="Informazioni">
+          <span aria-hidden="true">i</span>
+        </button>
+      </header>
+
+      <main id="app" tabindex="-1">
+        <section id="home-view" class="view">
+          <div class="intro">
+            <p class="eyebrow">Dentro il cinema</p>
+            <h1>Ogni film ha una storia <em>prima</em> della storia.</h1>
+            <p class="intro-copy">Regia, scenografia, fotografia e gli imprevisti che hanno dato forma alle immagini.</p>
+          </div>
+
+          <form class="search-box" id="search-form" role="search">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" /></svg>
+            <label class="sr-only" for="search-input">Cerca un film o un professionista</label>
+            <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Film, regista, direttore della fotografia…" />
+            <button type="button" id="clear-search" class="clear-search" aria-label="Cancella ricerca" hidden>×</button>
+          </form>
+
+          <div class="filter-row" id="filter-row" aria-label="Filtra per genere"></div>
+          <div class="catalog-live" id="catalog-live" hidden>
+            <span aria-hidden="true"></span>
+            Catalogo globale TMDB attivo
+          </div>
+
+          <section class="spotlight-section" id="spotlight-section" aria-labelledby="spotlight-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Scelta della redazione</p>
+                <h2 id="spotlight-title">In primo piano</h2>
+              </div>
+              <span class="edition">01 / 06</span>
+            </div>
+            <div id="spotlight"></div>
+          </section>
+
+          <section class="catalog-section" aria-labelledby="catalog-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow" id="result-label">Archivio curato</p>
+                <h2 id="catalog-title">Film da esplorare</h2>
+              </div>
+              <span id="result-count" class="count-pill"></span>
+            </div>
+            <div class="movie-grid" id="movie-grid"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <span class="empty-reel" aria-hidden="true">◌</span>
+              <h3>Nessun titolo in archivio</h3>
+              <p>Prova un altro nome. Se colleghi TMDB, la ricerca si estende a un catalogo molto più ampio.</p>
+            </div>
+          </section>
+        </section>
+
+        <section id="saved-view" class="view" hidden>
+          <div class="page-title">
+            <p class="eyebrow">La tua cineteca</p>
+            <h1>Salvati</h1>
+            <p>Le storie di produzione che vuoi rileggere.</p>
+          </div>
+          <div class="movie-grid" id="saved-grid"></div>
+          <div class="empty-state" id="saved-empty" hidden>
+            <span class="empty-reel" aria-hidden="true">♡</span>
+            <h3>La tua lista è ancora vuota</h3>
+            <p>Tocca il cuore su un film per ritrovarlo qui.</p>
+            <button class="text-button" type="button" data-action="home">Esplora i film →</button>
+          </div>
+        </section>
+
+        <article id="detail-view" class="view detail-view" hidden aria-live="polite"></article>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navigazione principale">
+        <button class="nav-item is-active" type="button" data-nav="home">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5V21h-6v-6H9v6H3v-9.5Z" /></svg>
+          <span>Scopri</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="search">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z" /></svg>
+          <span>Cerca</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="saved">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.7-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8Z" /></svg>
+          <span>Salvati</span>
+        </button>
+      </nav>
+    </div>
+
+    <dialog id="about-dialog" class="about-dialog">
+      <button class="dialog-close" type="button" data-action="close-about" aria-label="Chiudi">×</button>
+      <span class="brand-mark large" aria-hidden="true"></span>
+      <p class="eyebrow">Il progetto</p>
+      <h2>Non solo chi recita.<br />Chi crea l’immagine.</h2>
+      <p>Lente racconta i film attraverso i mestieri, i luoghi, le scelte tecniche e le difficoltà incontrate sul set.</p>
+      <div class="credit-note">
+        <strong>Dati e immagini</strong>
+        <p>Il catalogo demo è editoriale. L’integrazione completa è predisposta per TMDB.</p>
+        <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+        <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">Visita TMDB ↗</a>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
