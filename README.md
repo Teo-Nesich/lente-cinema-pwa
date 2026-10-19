@@ -6,6 +6,8 @@ Lente è una PWA dedicata al cinema, pensata per esplorare film e contenuti attr
 
 **[Apri la demo pubblica](https://lente-cinema-teoboba.matteonesich92.chatgpt.site)**
 
+![Anteprima di Lente su smartphone](lente-demo.png)
+
 ## Funzionalità disponibili
 
 - Catalogo di film con ricerca.
@@ -21,4 +23,4 @@ L’app è utilizzabile, ma lo sviluppo non è concluso. Il codice sorgente sar�
 
 - Pubblicare i sorgenti verificati e le istruzioni per l’avvio locale.
 - Completare e rifinire le funzionalità della PWA.
-- Aggiungere screenshot e una descrizione delle scelte tecniche.
+- Documentare le scelte tecniche.
